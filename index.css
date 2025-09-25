@@ -1,0 +1,101 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+   background-color: black;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+}
+
+.left-nav, .right-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.left-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 0 0 50%;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 0 0 50%;
+    justify-content: flex-end;
+}
+
+header a, header input, header button {
+    margin: 0 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .left-nav, .right-nav {
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    header input, header button {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .psdis, .log-in {
+        display: none; /* hide extra links on small screens */
+    }
+}
+
+
+.logo {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+header input {
+    flex: 1;               /* takes all space between icons */
+    min-width: 100px;      /* don’t shrink too small */
+    height: 5vh;
+    border-radius: 20px;
+    border: 0;
+    padding: 0 15px;
+    color: white;
+    background-color: black;
+}
+
+input::placeholder {
+    color: gray;
+    
+}
+
+.psdis {
+    color: gray;
+}
+
+header button {
+    background-color: white;
+    color: black;
+    border: 0;
+    border-radius: 20px;
+    height: 5vh;
+    padding: 0 15px;
+    cursor: pointer;
+}
