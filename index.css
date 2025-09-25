@@ -4,15 +4,23 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    
 }
 
+/* header */
+
 header {
-   background-color: black;
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: black;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 20px;
+    padding: 10px 10px;
 }
 
 .left-nav, .right-nav {
@@ -69,8 +77,8 @@ header a, header input, header button {
 
 
 .logo {
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
 }
 
@@ -85,9 +93,16 @@ header input {
     background-color: black;
 }
 
+header input:focus {
+    outline: 2px solid #1DB954; /* Spotify green */
+}
+
 input::placeholder {
     color: gray;
-    
+    font-family: "Alan Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .psdis {
@@ -103,3 +118,145 @@ header button {
     padding: 0 15px;
     cursor: pointer;
 }
+
+/*font*/
+.font {
+  font-family: "Alan Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* main */
+
+main {
+ display: flex;
+    height: calc(100vh - 10vh - 10vh); /* subtract header+footer heights */
+    margin-top: 10vh;   /* push below header */
+    margin-bottom: 10vh; /* avoid footer overlap */
+    overflow-y: auto;
+}
+
+/* later try to make this resizie like spotify */
+.left-main {
+    width: 350px;       /* Spotify-style fixed width */
+    flex: 0 0 350px;    /* fix the flex-basis */
+    flex-shrink: 0;     /* 🚫 don't shrink on small screens */
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+
+.right-main {
+    flex: 1;
+    background-color: gray;
+}
+
+.left-main-top {
+    background-color: black;
+    padding: 10px;
+    flex: 1;
+}
+
+.left-main-bottom {
+    background-color: black;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+}
+
+/* left main top */
+
+.library-plus p {
+    color: white;
+    font-size: 18px;
+}
+
+.library-plus {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+/* legt main bottom */
+
+.left-main-bottom-top, .left-main-bottom-middle, .left-main-bottom-bottom {
+    display: flex;
+    gap: 10px;
+    flex: wrap;
+}
+
+.left-main-bottom a {
+    text-decoration: none;
+    color: gray;
+    font-size: 12px;
+}
+
+.left-main-bottom button {
+    height: 5vh;
+    width: 100px;
+    border-radius: 20px;
+    border: 1px solid white;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    margin: 20px 20px 20px 0;
+}
+
+.left-main-bottom-bottom a{
+  color: white;
+}
+
+.left-main-bottom-bottom a:hover{
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+
+footer {
+    height: 10vh;
+    width: 100%;
+    background-color: purple;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
