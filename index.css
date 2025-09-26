@@ -97,13 +97,7 @@ header input:focus {
     outline: 2px solid #1DB954; /* Spotify green */
 }
 
-input::placeholder {
-    color: gray;
-    font-family: "Alan Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
+
 
 .psdis {
     color: gray;
@@ -154,32 +148,21 @@ main {
 
 .left-main-top {
     background-color: black;
-    padding: 10px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    position: relative;
 }
 
 .left-main-bottom {
     background-color: black;
-    flex: 1;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    padding: 10px;
     gap: 15px;
-}
-
-/* left main top */
-
-.library-plus p {
-    color: white;
-    font-size: 18px;
-}
-
-.library-plus {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
+    border-top: 1px solid #222;
+    flex: 1;
 }
 
 /* legt main bottom */
@@ -213,6 +196,107 @@ main {
 
 .left-main-bottom-bottom a:hover{
   text-decoration: underline;
+}
+
+/* left main top */
+
+.library-plus p {
+    color: white;
+    font-size: 18px;
+}
+
+.library-plus {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    
+}
+
+/* play pod */
+
+.play-pod {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 10px;
+    overflow-y: auto;
+}
+
+.playlist, .podcast {
+    flex: 0 0 25%;   /* each will take 25% of .play-pod height */
+    min-height: 120px; /* prevents collapsing on smaller screens */
+    border-radius: 10px;
+    background-color: gray;
+    padding: 10px;
+}
+
+.playlist p,.podcast p {
+    padding: 2px;
+}
+
+.play-pod button {
+    cursor: pointer;
+}
+
+.left-main1-text {
+    color: white;
+    font-size: 15px;
+}
+
+.left-main2-text {
+    color: white;
+    font-size: 12px;
+}
+
+.playlist button, .podcast button {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: 0;
+    border-radius: 20px;
+    height: 30px;
+    text-align: center;
+    padding: 0 10px 0 10px ;
+    margin-top: 20px;
+}
+
+/* scroll bar */
+
+/* For Chrome, Edge, Safari */
+.left-main-top::-webkit-scrollbar,
+.play-pod::-webkit-scrollbar {
+  width: 10px;              /* thin scrollbar */
+}
+
+.left-main-top::-webkit-scrollbar-track,
+.play-pod::-webkit-scrollbar-track {
+  background: transparent;   /* no background */
+}
+
+.left-main-top::-webkit-scrollbar-thumb,
+.play-pod::-webkit-scrollbar-thumb {
+  background-color: #4a4a4a;  /* dark gray like Spotify */
+  border-radius: 20px;        /* rounded edges */
+  border: 2px solid transparent; /* creates padding effect */
+  background-clip: content-box;
+}
+
+.left-main-top::-webkit-scrollbar-thumb:hover,
+.play-pod::-webkit-scrollbar-thumb:hover {
+  background-color: #7a7a7a;  /* lighter on hover */
+}
+
+/* For Firefox */
+.left-main-top,
+.play-pod {
+  scrollbar-width: auto;           /* makes it thinner */
+  scrollbar-color: #4a4a4a black;  /* thumb color | track color */
 }
 
 
@@ -258,5 +342,59 @@ footer {
     bottom: 0;
     left: 0;
     z-index: 1000;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+    padding: 10px;
+    overflow-wrap: break-word;  /* ✅ breaks long text instead of overflowing */
+    word-break: break-word;     /* ✅ fallback */
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .footer-right {
+    align-self: center; /* ✅ keep button centered below text */
+  }
+}
+
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-right button {
+    height: 40px;
+    width: 150px;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 0 10px ;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
