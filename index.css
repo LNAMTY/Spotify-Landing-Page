@@ -36,6 +36,8 @@ header {
     flex: 0 0 50%;
 }
 
+
+
 .right-nav {
     display: flex;
     align-items: center;
@@ -94,7 +96,7 @@ header input {
 }
 
 header input:focus {
-    outline: 2px solid #1DB954; /* Spotify green */
+    outline: 2px solid white; /* Spotify green */
 }
 
 
@@ -124,26 +126,22 @@ header button {
 /* main */
 
 main {
- display: flex;
+    display: flex;
     height: calc(100vh - 10vh - 10vh); /* subtract header+footer heights */
     margin-top: 10vh;   /* push below header */
     margin-bottom: 10vh; /* avoid footer overlap */
-    overflow-y: auto;
+    overflow: hidden; /* prevents whole main from scrolling */
 }
 
 /* later try to make this resizie like spotify */
 .left-main {
-    width: 350px;       /* Spotify-style fixed width */
-    flex: 0 0 350px;    /* fix the flex-basis */
+    width: 400px;       /* Spotify-style fixed width */
+    flex: 0 0 400px;    /* fix the flex-basis */
     flex-shrink: 0;     /* 🚫 don't shrink on small screens */
     display: flex;
     flex-direction: column;
     background-color: black;
-}
-
-.right-main {
-    flex: 1;
-    background-color: gray;
+    overflow: hidden; /* stops left from scrolling */
 }
 
 .left-main-top {
@@ -299,38 +297,124 @@ main {
   scrollbar-color: #4a4a4a black;  /* thumb color | track color */
 }
 
+/* right main */
+
+.right-main {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto; /* to make only right side scrolls */
+    display: block;
+    overflow-x:hidden; /* I am hidding the horizontal scroll bar */
+    background-color: black;
+}
 
 
+.trending, .pop-art, .pop-al-si, .pop-radio, .featured-charts {
+    height: 200px;
+    width: 100%;
+    background-color: gray;
+    margin: 10px 0;
+}
+
+.trending {
+    
+}
 
 
+.top {
+    display: flex;
+    justify-content: space-between;
+    background-color: pink;
+    padding: 10px 15px;
+}
+
+.top a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.top a:hover {
+    text-decoration: underline;
+}
+
+.topic {
+    font-size: 17px;
+}
+
+.show-all {
+    font-size: 14px;
+}
+
+/* About */
+
+hr {
+    background-color: gray;
+    border: none;
+    height: 1px;
+    border-radius: 1px;
+}
+
+.about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px 10px;
+}
+
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        gap: 20px;
+    } 
+}
+
+.ab {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.ab p {
+    color: white;
+    font-weight: 500;
+    padding: 5px;
+}
+
+.ab a {
+    text-decoration: none;
+    color: gray;
+    padding: 5px;
+}
+
+.ab a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.social-logos {
+    padding: 5px;
+}
+
+a i {
+  font-size: 24px;
+  color: white;
+  margin: 0 20px 0 0;
+  cursor: pointer;
+}
+
+a i:hover {
+  color: gray; /* like Spotify green hover */
+}
 
 
+/* company-name */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.company-name {
+    
+    color: gray;
+    padding: 30px 15px;
+}
 
 /* footer */
 
