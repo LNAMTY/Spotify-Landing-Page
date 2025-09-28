@@ -7,6 +7,10 @@
     
 }
 
+body {
+    background-color: black;
+}
+
 /* header */
 
 header {
@@ -268,17 +272,20 @@ main {
 
 /* For Chrome, Edge, Safari */
 .left-main-top::-webkit-scrollbar,
-.play-pod::-webkit-scrollbar {
+.play-pod::-webkit-scrollbar, 
+.right-main::-webkit-scrollbar {
   width: 10px;              /* thin scrollbar */
 }
 
 .left-main-top::-webkit-scrollbar-track,
-.play-pod::-webkit-scrollbar-track {
+.play-pod::-webkit-scrollbar-track, 
+.right-main::-webkit-scrollbar-track  {
   background: transparent;   /* no background */
 }
 
 .left-main-top::-webkit-scrollbar-thumb,
-.play-pod::-webkit-scrollbar-thumb {
+.play-pod::-webkit-scrollbar-thumb,
+.right-main::-webkit-scrollbar-thumb {
   background-color: #4a4a4a;  /* dark gray like Spotify */
   border-radius: 20px;        /* rounded edges */
   border: 2px solid transparent; /* creates padding effect */
@@ -286,7 +293,8 @@ main {
 }
 
 .left-main-top::-webkit-scrollbar-thumb:hover,
-.play-pod::-webkit-scrollbar-thumb:hover {
+.play-pod::-webkit-scrollbar-thumb:hover,
+.right-main::-webkit-scrollbar-thumb:hover {
   background-color: #7a7a7a;  /* lighter on hover */
 }
 
@@ -305,26 +313,22 @@ main {
     overflow-y: auto; /* to make only right side scrolls */
     display: block;
     overflow-x:hidden; /* I am hidding the horizontal scroll bar */
-    background-color: black;
-}
-
-
-.trending, .pop-art, .pop-al-si, .pop-radio, .featured-charts {
-    height: 200px;
-    width: 100%;
-    background-color: gray;
-    margin: 10px 0;
-}
-
-.trending {
+    background-color: #111;
+    border-radius: 10px;
+    margin: 5px;
     
 }
 
 
+.trending, .pop-art, .pop-al-si, .pop-radio, .featured-charts {
+    height: 300px;
+    width: 100%;
+    margin: 10px 0;
+}
+
 .top {
     display: flex;
     justify-content: space-between;
-    background-color: pink;
     padding: 10px 15px;
 }
 
@@ -414,6 +418,131 @@ a i:hover {
     
     color: gray;
     padding: 30px 15px;
+}
+
+/* the main classifications on the right main */
+
+.trending-bottom, 
+.pop-art-bottom, 
+.pop-al-si-bottom,
+.pop-radio-bottom,
+.featued-charts-bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 15px;
+    height: calc(100% - 40px);
+    scrollbar-width: none;
+}
+
+.pop-art-bottom::-webkit-scrollbar,
+.pop-art-bottom::-webkit-scrollbar,
+.pop-al-si-bottom::-webkit-scrollbar,
+.pop-radio-bottom::-webkit-scrollbar,
+.featued-charts-bottom::-webkit-scrollbar {
+    display: none;
+}
+
+
+.trending-bottom a,
+.pop-art-bottom a,
+.pop-al-si-bottom a,
+.pop-radio-bottom a,
+.featued-charts-bottom a
+{
+    flex: 0 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+.trending-bottom a:hover,
+.pop-art-bottom a:hover,
+.pop-al-si-bottom a:hover,
+.pop-radio-bottom a:hover,
+.featued-charts-bottom a:hover {
+    background-color: #222;
+    text-decoration: underline;
+    color: white;
+}
+
+.trending-bottom a img,
+.pop-art-bottom a img,
+.pop-al-si-bottom a img,
+.pop-radio-bottom a img,
+.featued-charts-bottom a img {
+    flex: 0 0 auto;
+    max-height: 70%;
+    width: auto;
+    border-radius: 5px;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+
+}
+
+.trending-bottom a,
+.pop-art-bottom a,
+.pop-al-si-bottom a,
+.pop-radio-bottom a,
+.featued-charts-bottom a {
+    text-decoration: none;
+}
+
+.trending-bottom a p,
+.pop-art-bottom a p,
+.pop-al-si-bottom a p,
+.pop-radio-bottom a p,
+.featued-charts-bottom a p {
+    margin-top: 5px;
+    color: white;
+}
+
+.pop-art-bottom a img {
+    border-radius: 50%;
+}
+
+/* green play button */
+
+.card {
+  position: relative;   /* important for positioning the button */
+  display: inline-block;
+  width: 160px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.play-btn {
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #1DB954;
+    border: none;
+    color: black;
+    padding-left: 5px; /* Added this to put the black play button at the center */
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.9);
+    transition:  all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.card:hover .play-btn {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* footer */
